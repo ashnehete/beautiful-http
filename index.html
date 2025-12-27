@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <title>Beautiful HTTP</title>
+  <link rel='preconnect' href='https://fonts.googleapis.com'>
+  <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+  <link href='https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap' rel='stylesheet'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css'>
+  <link rel='stylesheet' href='./style.css'>
+</head>
+
+<body>
+  <main>
+    <div id='box'>
+      <div id='request'>
+        <select name='method' id='method'>
+          <option value='GET'>GET</option>
+          <option value='POST'>POST</option>
+          <option value='PUT'>PUT</option>
+          <option value='DELETE'>DELETE</option>
+        </select>
+        <span contenteditable='true' id='path'>/api/controller</span>
+      </div>
+      <div id='requestHeaders' contenteditable='true'>
+        <div>Host: developer.mozilla.org</div>
+        <div>Accept-Language: fr</div>
+      </div>
+      <div id="requestBody" class="language-json">{
+        "user_id": 123,
+        "role": "admin"
+        }</div>
+    </div>
+    <div class="actions">
+      <button id="exportBtn" class="btn">Download PNG</button>
+    </div>
+  </main>
+
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+  <script type="module">
+    import { CodeJar } from 'https://medv.io/codejar/codejar.js';
+    window.CodeJar = CodeJar;
+    // Dispatch event to signal CodeJar is ready
+    window.dispatchEvent(new Event('codejar-ready'));
+  </script>
+  <script type="module" src='index.js'></script>
+</body>
+
+</html>
